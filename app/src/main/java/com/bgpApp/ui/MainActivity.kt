@@ -1,7 +1,8 @@
-package com.BGPApp
+package com.bgpApp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bgpApp.R
 
 class MainActivity : AppCompatActivity() {
 

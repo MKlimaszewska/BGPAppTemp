@@ -1,4 +1,4 @@
-package com.BGPApp
+package com.bgpApp
 
 import org.junit.Test
 
