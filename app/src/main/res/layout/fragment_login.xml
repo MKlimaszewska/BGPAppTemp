@@ -12,10 +12,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
         android:layout_height="match_parent"
         android:background="@color/colorBackground"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         tools:context=".ui.login.LoginFragment">
 
         <ImageView
@@ -32,9 +32,9 @@
             android:layout_width="175dp"
             android:layout_height="175dp"
             android:src="@drawable/logodice"
-            app:layout_constraintTop_toBottomOf="@id/puzzleImage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/puzzleImage" />
 
 
         <EditText
@@ -60,11 +60,11 @@
 
         <TextView
             android:id="@+id/startRegisterButton"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="5dp"
+            android:onClick="@{() -> viewModel.onClickToRegistration()}"
             android:text="@string/przejdz_do_rejestracji"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:background="@color/colorPrimaryDark"
-            android:onClick="@{() -> viewModel.onClick()}"
+            android:onClick="@{() -> viewModel.onClickToLogIn()}"
             android:text="@string/zaloguj"
             app:layout_constraintLeft_toLeftOf="@id/passwordEditText"
             app:layout_constraintRight_toRightOf="@id/passwordEditText"

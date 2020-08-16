@@ -7,4 +7,9 @@
     <string name="nazwa_uzytkownika">Nazwa użytkownika</string>
     <string name="haslo">Hasło</string>
     <string name="przejdz_do_rejestracji">Przejdź do rejestracji</string>
+    <string name="spotkania">Spotkania</string>
+    <string name="baza_gier">Baza gier</string>
+    <string name="dodaj_spotkanie">Dodaj spotkanie</string>
+    <string name="miejsca">Miejsca</string>
+    <string name="tw_j_profil">Twój profil</string>
 </resources>

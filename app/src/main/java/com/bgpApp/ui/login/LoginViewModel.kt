@@ -10,9 +10,17 @@ class LoginViewModel : ViewModel(), Navigator by DefaultNavigator() {
 
     val buttonText = "Zaloguj"
 
-    fun onClick() {
+    fun onClickToLogIn() {
         navigate(NavigationCommand.ToFlow(MainActivity::class.java))
-        //navigate(NavigationCommand.To(LoginFragmentDirections.toRegistrationFragment()))
+
+    }
+
+    fun onClickToRegistration() {
+        navigate(
+            NavigationCommand.To(
+                LoginFragmentDirections.toregistrationfragment()
+            )
+        )
     }
 
 }

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/pubs"
-        android:icon="@drawable/ic_temp"
-        android:title="pubs"/>
+    <item android:id="@+id/events"
+        android:icon="@drawable/ic_date_range_black_24dp"
+        android:title="@string/spotkania"/>
 
     <item android:id="@+id/wikipedia"
-        android:icon="@drawable/ic_temp"
-        android:title="wiki"/>
-
-    <item android:id="@+id/events"
-        android:icon="@drawable/ic_temp"
-        android:title="events"/>
+        android:icon="@drawable/ic_format_list_bulleted_black_24dp"
+        android:title="@string/baza_gier"/>
 
     <item android:id="@+id/addEvent"
-        android:icon="@drawable/ic_temp"
-        android:title="add event"/>
+        android:icon="@drawable/ic_add_box_black_24dp"
+        android:title="@string/dodaj_spotkanie"/>
+
+    <item android:id="@+id/pubs"
+        android:icon="@drawable/ic_location_on_black_24dp"
+        android:title="@string/miejsca"/>
 
     <item android:id="@+id/profile"
-        android:icon="@drawable/ic_temp"
-        android:title="profile"/>
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="@string/tw_j_profil"/>
 
 </menu>
