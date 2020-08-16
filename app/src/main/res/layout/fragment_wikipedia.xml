@@ -1,13 +1,24 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.bgpApp.ui.wikipedia.WikipediaFragment">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bgpApp.ui.wikipedia.WikipediaViewModel" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="wikipedia" />
+        tools:context="com.bgpApp.ui.wikipedia.WikipediaFragment">
 
-</FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/wikipediaItems"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:data="@{viewModel.wikipediaItems}"/>
+
+    </FrameLayout>
+
+
+</layout>
