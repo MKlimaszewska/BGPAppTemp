@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/pubs"
+        android:icon="@drawable/ic_temp"
+        android:title="pubs"/>
+
+    <item android:id="@+id/wikipedia"
+        android:icon="@drawable/ic_temp"
+        android:title="wiki"/>
+
+    <item android:id="@+id/events"
+        android:icon="@drawable/ic_temp"
+        android:title="events"/>
+
+    <item android:id="@+id/addEvent"
+        android:icon="@drawable/ic_temp"
+        android:title="add event"/>
+
+    <item android:id="@+id/profile"
+        android:icon="@drawable/ic_temp"
+        android:title="profile"/>
+
+</menu>
