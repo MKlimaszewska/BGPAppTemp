@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.bgpApp.R
 import com.bgpApp.databinding.FragmentLoginBinding
+import com.bgpApp.navigation.observeNavigation
 
 class LoginFragment : Fragment() {
 
     private val viewModel = LoginViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        viewModel.observeNavigation(this)
         return DataBindingUtil.inflate<FragmentLoginBinding>(inflater, R.layout.fragment_login, container, false).also {
             it.lifecycleOwner = this
             it.viewModel = viewModel

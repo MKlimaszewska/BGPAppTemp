@@ -7,17 +7,6 @@
 
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.bgpApp.ui.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/toRegistrationFragment"
-            app:destination="@id/registrationFragment" />
-    </fragment>
-
-
-    <fragment
         android:id="@+id/registrationFragment"
         android:name="com.bgpApp.ui.registration.RegistrationFragment"
         android:label="fragment_registration"
