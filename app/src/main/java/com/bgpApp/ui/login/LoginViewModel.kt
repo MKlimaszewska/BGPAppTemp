@@ -7,7 +7,7 @@ import com.bgpApp.navigation.Navigator
 
 class LoginViewModel : ViewModel(), Navigator by DefaultNavigator() {
 
-    val buttonText = "super tekst 123"
+    val buttonText = "Zaloguj"
 
     fun onClick() {
         navigate(NavigationCommand.To(LoginFragmentDirections.toRegistrationFragment()))

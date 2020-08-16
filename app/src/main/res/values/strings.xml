@@ -2,4 +2,9 @@
     <string name="app_name">BGPApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="zaloguj">Zaloguj</string>
+    <string name="zarejestruj">Zarejestruj</string>
+    <string name="nazwa_uzytkownika">Nazwa użytkownika</string>
+    <string name="haslo">Hasło</string>
+    <string name="przejdz_do_rejestracji">Przejdź do rejestracji</string>
 </resources>

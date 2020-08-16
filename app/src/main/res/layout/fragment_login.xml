@@ -1,23 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.bgpApp.ui.login.LoginViewModel" />
     </data>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:layout_height="match_parent"
+        android:background="@color/colorBackground"
         tools:context=".ui.login.LoginFragment">
 
-        <TextView
+        <ImageView
+            android:id="@+id/puzzleImage"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_puzzlesvg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/logobgp"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:src="@drawable/logodice"
+            app:layout_constraintTop_toBottomOf="@id/puzzleImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <EditText
+            android:id="@+id/loginEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{viewModel.buttonText}" />
-<!--@{} - skladnia , view model to zmienna, button text to zmienna z ktorej dane beda prezentowane w wybranym miejscu -->
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:hint="@string/nazwa_uzytkownika"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logobgp" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/haslo"
+            android:inputType="textPassword"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loginEditText" />
+
+        <TextView
+            android:id="@+id/startRegisterButton"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/przejdz_do_rejestracji"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="@{() -> viewModel.onClick()}"
+            android:text="@string/zaloguj"
+            app:layout_constraintLeft_toLeftOf="@id/passwordEditText"
+            app:layout_constraintRight_toRightOf="@id/passwordEditText"
+            app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
+        <!--@{} - skladnia , view model to zmienna, button text to zmienna z ktorej dane beda prezentowane w wybranym miejscu -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
