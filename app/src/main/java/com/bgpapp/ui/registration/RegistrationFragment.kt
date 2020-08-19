@@ -11,9 +11,12 @@ import com.bgpapp.databinding.FragmentRegistrationBinding
 
 class RegistrationFragment : Fragment() {
 
+    private val viewModel = RegistrationViewModel()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return DataBindingUtil.inflate<FragmentRegistrationBinding>(inflater, R.layout.fragment_registration, container, false).also {
             it.lifecycleOwner = this
+            it.viewModel = viewModel
         }.root
     }
 
