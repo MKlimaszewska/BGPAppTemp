@@ -7,34 +7,36 @@
 
         <variable
             name="viewModel"
-            type="com.bgpApp.ui.login.LoginViewModel" />
+            type="com.bgpapp.ui.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground"
         android:paddingLeft="15dp"
+        android:background="@drawable/background_login"
         android:paddingRight="15dp"
         tools:context=".ui.login.LoginFragment">
 
-        <ImageView
-            android:id="@+id/puzzleImage"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_puzzlesvg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+<!--        <ImageView-->
+<!--            android:id="@+id/puzzleImage"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:src="@drawable/ic_puzzlesvg"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:ignore="ContentDescription" />-->
 
         <ImageView
             android:id="@+id/logobgp"
+            android:background="@drawable/picture_back"
+            android:layout_marginTop="100dp"
             android:layout_width="175dp"
             android:layout_height="175dp"
             android:src="@drawable/logodice"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/puzzleImage" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <EditText
@@ -45,18 +47,22 @@
             android:hint="@string/nazwa_uzytkownika"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logobgp" />
+            app:layout_constraintTop_toBottomOf="@id/logobgp"
+            android:drawableStart="@drawable/ic_person_black_24dp"
+           />
 
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="@string/haslo"
             android:inputType="textPassword"
+            android:hint="@string/haslo"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginEditText" />
+            app:layout_constraintTop_toBottomOf="@id/loginEditText"
+            android:drawableStart="@drawable/ic_lockpad_24dp"
+            />
 
         <TextView
             android:id="@+id/startRegisterButton"
@@ -71,10 +77,11 @@
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/button"
+            android:textColor="#ffffff"
             android:onClick="@{() -> viewModel.onClickToLogIn()}"
             android:text="@string/zaloguj"
             app:layout_constraintLeft_toLeftOf="@id/passwordEditText"

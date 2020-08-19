@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e3e3e3"
-    tools:context="com.bgpApp.ui.addevent.AddEventFragment">
+    tools:context="com.bgpapp.ui.addevent.AddEventFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

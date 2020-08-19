@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.bgpApp.ui.registration.RegistrationFragment"
+        android:name="com.bgpapp.ui.registration.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" >
         <action
@@ -18,27 +18,27 @@
 
     <fragment
         android:id="@+id/addEvent"
-        android:name="com.bgpApp.ui.addevent.AddEventFragment"
+        android:name="com.bgpapp.ui.addevent.AddEventFragment"
         android:label="fragment_add_event"
         tools:layout="@layout/fragment_add_event" />
     <fragment
         android:id="@+id/events"
-        android:name="com.bgpApp.ui.events.EventsFragment"
+        android:name="com.bgpapp.ui.events.EventsFragment"
         android:label="fragment_events"
         tools:layout="@layout/fragment_events" />
     <fragment
         android:id="@+id/profile"
-        android:name="com.bgpApp.ui.profile.ProfileFragment"
+        android:name="com.bgpapp.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/pubs"
-        android:name="com.bgpApp.ui.pubs.PubsFragment"
+        android:name="com.bgpapp.ui.pubs.PubsFragment"
         android:label="fragment_pubs"
         tools:layout="@layout/fragment_pubs" />
     <fragment
         android:id="@+id/wikipedia"
-        android:name="com.bgpApp.ui.wikipedia.WikipediaFragment"
+        android:name="com.bgpapp.ui.wikipedia.WikipediaFragment"
         android:label="fragment_wikipedia"
         tools:layout="@layout/fragment_wikipedia" />
 

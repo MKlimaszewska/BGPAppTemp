@@ -4,12 +4,19 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="zaloguj">Zaloguj</string>
     <string name="zarejestruj">Zarejestruj</string>
-    <string name="nazwa_uzytkownika">Nazwa użytkownika</string>
-    <string name="haslo">Hasło</string>
-    <string name="przejdz_do_rejestracji">Przejdź do rejestracji</string>
+    <string name="nazwa_uzytkownika">   Nazwa użytkownika</string>
+    <string name="haslo">   Hasło</string>
+    <string name="przejdz_do_rejestracji">Nowy użytkownik? Przejdź do rejestracji</string>
     <string name="spotkania">Spotkania</string>
     <string name="baza_gier">Baza gier</string>
     <string name="dodaj_spotkanie">Dodaj spotkanie</string>
     <string name="miejsca">Miejsca</string>
     <string name="tw_j_profil">Twój profil</string>
+    <string name="powtorz_haslo">Powtórz hasło</string>
+    <string name="imie">Imię</string>
+    <string name="nazwisko">Nazwisko</string>
+    <string name="data_urodzenia">Data urodzenia</string>
+    <string name="email">Email</string>
+    <string name="zdjecie">Zdjęcie</string>
+    <string name="anuluj">Anuluj</string>
 </resources>

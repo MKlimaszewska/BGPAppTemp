@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.bgpApp.ui.wikipedia.WikipediaItem" />
+            type="com.bgpapp.ui.wikipedia.WikipediaItem" />
     </data>
 
     <FrameLayout
