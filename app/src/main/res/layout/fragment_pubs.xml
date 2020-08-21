@@ -1,7 +1,15 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bgpapp.ui.pubs.PubsViewModel" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="55dp"
     tools:context="com.bgpapp.ui.pubs.PubsFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -9,5 +17,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="pubs" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/PubsItems"
+            android:background="@color/colorBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:data="@{viewModel.pubsItems}"/>
 
 </FrameLayout>
+</layout>

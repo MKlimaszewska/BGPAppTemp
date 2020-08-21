@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.bgpapp.ui.wikipedia.WikipediaItem" />
+            type="com.bgpapp.ui.events.EventsItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,12 +21,12 @@
             android:layout_height="150dp"
             android:layout_margin="10dp"
             android:background="@drawable/picture_back"
-            android:src="@drawable/ic_puzzle_black_24dp"
+            android:src="@drawable/ic_group_black_24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/gameTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -41,51 +41,65 @@
             app:layout_constraintTop_toBottomOf="@id/playerImage" />
 
         <TextView
-            android:id="@+id/numberOfGamers"
+            android:id="@+id/placeOfGames"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginStart="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="2-4"
+            android:text="K6"
             android:textColor="@color/colorPrimary"
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/gameTitle" />
 
         <TextView
-            android:id="@+id/category"
+            android:id="@+id/adressOfGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginStart="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Strategiczna"
+            android:text="Piotrkowska 6"
             android:textColor="@color/colorPrimary"
             android:textSize="20dp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/numberOfGamers" />
-
-
-        <TextView
-            android:id="@+id/duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginStart="8dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="30-60 min"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/numberOfGamers"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/numberOfGamers" />
+            app:layout_constraintTop_toBottomOf="@id/gameTitle" />
+
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="08.08"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/placeOfGames" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="18:00"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/placeOfGames" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
