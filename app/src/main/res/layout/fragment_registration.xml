@@ -22,7 +22,7 @@
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/picture_back"
+            android:background="@drawable/logo_back"
             android:src="@drawable/logodice"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -29,7 +29,7 @@
 
         <ImageView
             android:id="@+id/logobgp"
-            android:background="@drawable/picture_back"
+            android:background="@drawable/logo_back"
             android:layout_marginTop="100dp"
             android:layout_width="175dp"
             android:layout_height="175dp"
