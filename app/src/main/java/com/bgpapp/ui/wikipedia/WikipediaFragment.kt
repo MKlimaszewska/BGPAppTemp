@@ -37,7 +37,7 @@ class WikipediaFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getItems()
+        viewModel.getItems(this)
     }
 
 }

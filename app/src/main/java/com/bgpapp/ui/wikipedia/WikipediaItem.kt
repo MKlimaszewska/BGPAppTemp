@@ -1,3 +1,13 @@
 package com.bgpapp.ui.wikipedia
 
-data class WikipediaItem (val title: String)
+import com.bgpapp.navigation.DefaultNavigator
+import com.bgpapp.navigation.NavigationCommand
+import com.bgpapp.navigation.Navigator
+
+data class WikipediaItem (val title: String): Navigator by DefaultNavigator() {
+
+    fun navigateTo() {
+        navigate(NavigationCommand.To(WikipediaFragmentDirections.toWikipediaDetails()))
+    }
+
+}

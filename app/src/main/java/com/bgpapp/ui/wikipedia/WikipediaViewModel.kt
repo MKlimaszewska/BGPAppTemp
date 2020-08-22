@@ -1,9 +1,7 @@
 package com.bgpapp.ui.wikipedia
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.bgpapp.navigation.observeNavigation
 import com.bgpapp.service.BGPService
 import kotlinx.coroutines.launch
 
@@ -14,8 +12,15 @@ class WikipediaViewModel(private val service: BGPService) : ViewModel() {
     }
     val wikipediaItems: LiveData<List<WikipediaItem>> = _wikipediaItems
 
-    fun getItems() = viewModelScope.launch {
+    fun getItems(lifecycleOwner: LifecycleOwner) = viewModelScope.launch {
         _wikipediaItems.value = service.getWikipediaItems()
+        observeItemsNavigation(lifecycleOwner)
+    }
+
+    private fun observeItemsNavigation(lifecycleOwner: LifecycleOwner) {
+        _wikipediaItems.value?.forEach {
+            it.observeNavigation(lifecycleOwner)
+        }
     }
 
 }

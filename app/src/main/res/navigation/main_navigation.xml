@@ -40,7 +40,16 @@
         android:id="@+id/wikipedia"
         android:name="com.bgpapp.ui.wikipedia.WikipediaFragment"
         android:label="fragment_wikipedia"
-        tools:layout="@layout/fragment_wikipedia" />
+        tools:layout="@layout/fragment_wikipedia" >
+        <action
+            android:id="@+id/toWikipediaDetails"
+            app:destination="@id/wikipediaDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wikipediaDetailsFragment"
+        android:name="com.bgpapp.ui.wikipedia.details.WikipediaDetailsFragment"
+        android:label="fragment_wikipedia_details"
+        tools:layout="@layout/fragment_wikipedia_details" />
 
 
 </navigation>
