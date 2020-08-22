@@ -14,7 +14,6 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/wikipediaItems"
-            android:background="@color/colorBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:data="@{viewModel.wikipediaItems}"/>
