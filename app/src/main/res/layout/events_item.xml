@@ -8,15 +8,22 @@
             name="viewModel"
             type="com.bgpapp.ui.events.EventsItem" />
     </data>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="16dp"
+        app:cardElevation="8dp"
+        android:layout_margin="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackgroundLight"
+        android:background="#f6f6f6"
         android:minHeight="275dp">
 
+
         <ImageView
-            android:id="@+id/playerImage"
+            android:id="@+id/eventsImage"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_margin="10dp"
@@ -38,7 +45,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/playerImage" />
+            app:layout_constraintTop_toBottomOf="@id/eventsImage" />
 
         <TextView
             android:id="@+id/placeOfGames"
@@ -48,10 +55,9 @@
             android:layout_marginStart="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="K6"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:text="Miejsce:K6"
+            android:textColor="@color/colorGrey"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/gameTitle" />
 
@@ -63,10 +69,9 @@
             android:layout_marginStart="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Piotrkowska 6"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:text="Adres:Piotrkowska 6"
+            android:textColor="@color/colorGrey"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/gameTitle" />
 
@@ -79,10 +84,9 @@
             android:layout_marginStart="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="08.08"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:text="Data:08.08"
+            android:textColor="@color/colorGrey"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/placeOfGames" />
 
@@ -94,13 +98,14 @@
             android:layout_marginStart="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="18:00"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:text="Godzina:18:00"
+            android:textColor="@color/colorGrey"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/placeOfGames" />
 
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>
