@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
+<data>
+    <variable
+        name="viewModel"
+        type="com.bgpapp.ui.profile.ProfileViewModel" />
+</data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -143,14 +147,15 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-                <!--        <androidx.recyclerview.widget.RecyclerView-->
-                <!--            android:id="@+id/userComments"-->
-                <!--            android:layout_width="match_parent"-->
-                <!--            android:layout_height="wrap_content"-->
-                <!--            app:layout_constraintLeft_toLeftOf="parent"-->
-                <!--            app:layout_constraintRight_toRightOf="parent"-->
-                <!--            app:layout_constraintTop_toBottomOf="@id/usersOpinions"-->
-                <!--            tools:listitem="@layout/user_games_item"/>-->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/userComments"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/email"
+                            app:data="@{viewModel.listOfComments}"
+                            tools:listitem="@layout/comments_item"/>
 
                 <!--        <androidx.recyclerview.widget.RecyclerView-->
                 <!--            android:id="@+id/userComments"-->

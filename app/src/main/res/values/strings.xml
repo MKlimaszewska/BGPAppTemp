@@ -20,4 +20,5 @@
     <string name="zdjecie">Zdjęcie</string>
     <string name="anuluj">Anuluj</string>
     <string name="numer_telefonu">Numer telefonu</string>
+    <string name="komentarz">Komentarz</string>
 </resources>
