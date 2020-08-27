@@ -41,4 +41,9 @@ class BGPService {
             ""
         )
     }
+    suspend fun getPubs() = withContext(Dispatchers.IO) {
+        MockedBackend.pubs
+    }
+
+
 }
