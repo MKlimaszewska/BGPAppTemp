@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-<data>
-    <variable
-        name="viewModel"
-        type="com.bgpapp.ui.profile.ProfileViewModel" />
-</data>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bgpapp.ui.profile.ProfileViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,8 +41,8 @@
                     android:id="@+id/updateProfile"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/logo_back"
                     android:src="@drawable/ic_settings_black_24dp"
                     app:layout_constraintRight_toRightOf="parent"
@@ -49,123 +51,130 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="25dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="175dp"
-            android:layout_marginBottom="15dp">
+            android:layout_marginBottom="15dp"
+            app:cardCornerRadius="25dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/userName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Pseudonim"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="30dp"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <RatingBar
-                    android:id="@+id/eventRatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:isIndicator="true"
-                    android:numStars="5"
-                    android:stepSize="0.5"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/userName" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userInformationTV"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/eventRatingBar"
-                    app:startIconDrawable="@drawable/ic_contacts_black_24dp">
+                    android:layout_height="match_parent">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Pseudonim"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RatingBar
+                        android:id="@+id/eventRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:stepSize="0.5"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/userName" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/userInformationTV"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Magda"
-                        android:focusable="false"
-                        android:hint="@string/imie"
-                        android:inputType="none"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/eventRatingBar"
+                        app:startIconDrawable="@drawable/ic_contacts_black_24dp">
 
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/phoneMobile"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/userInformationTV"
-                    app:startIconDrawable="@drawable/ic_contact_phone_black_24dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="123456789"
-                        android:focusable="false"
-                        android:hint="@string/numer_telefonu"
-                        android:inputType="none"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/email"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/phoneMobile"
-                    app:startIconDrawable="@drawable/ic_contact_mail_black_24dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="qwerty@gmail.com"
-                        android:focusable="false"
-                        android:hint="@string/email"
-                        android:inputType="none"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/userComments"
+                        <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/email"
-                            app:data="@{viewModel.listOfComments}"
-                            tools:listitem="@layout/comments_item"/>
+                            android:layout_height="match_parent"
+                            android:focusable="false"
+                            android:hint="@string/imie"
+                            android:inputType="none"
+                            android:text="Magda" />
 
-                <!--        <androidx.recyclerview.widget.RecyclerView-->
-                <!--            android:id="@+id/userComments"-->
-                <!--            android:layout_width="match_parent"-->
-                <!--            android:layout_height="wrap_content"-->
-                <!--            app:layout_constraintLeft_toLeftOf="parent"-->
-                <!--            app:layout_constraintRight_toRightOf="parent"-->
-                <!--            app:layout_constraintTop_toBottomOf="@id/usersOpinions"-->
-                <!--            tools:listitem="@layout/user_comments_item"/>-->
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/phoneMobile"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/userInformationTV"
+                        app:startIconDrawable="@drawable/ic_contact_phone_black_24dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:focusable="false"
+                            android:hint="@string/numer_telefonu"
+                            android:inputType="none"
+                            android:text="123456789" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/email"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/phoneMobile"
+                        app:startIconDrawable="@drawable/ic_contact_mail_black_24dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:focusable="false"
+                            android:hint="@string/email"
+                            android:inputType="none"
+                            android:text="qwerty@gmail.com" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/userComments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintHeight_max="100dp"
+                        app:data="@{viewModel.listOfComments}"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/email"
+                        tools:listitem="@layout/comments_item" />
+
+                    <!--        <androidx.recyclerview.widget.RecyclerView-->
+                    <!--            android:id="@+id/userComments"-->
+                    <!--            android:layout_width="match_parent"-->
+                    <!--            android:layout_height="wrap_content"-->
+                    <!--            app:layout_constraintLeft_toLeftOf="parent"-->
+                    <!--            app:layout_constraintRight_toRightOf="parent"-->
+                    <!--            app:layout_constraintTop_toBottomOf="@id/usersOpinions"-->
+                    <!--            tools:listitem="@layout/user_comments_item"/>-->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

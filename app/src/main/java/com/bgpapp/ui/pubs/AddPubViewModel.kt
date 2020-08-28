@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.bgpapp.common.DataEventEmitter
 import com.bgpapp.common.EventEmitter
-import com.bgpapp.common.addSources
 import com.bgpapp.common.emit
 import com.bgpapp.navigation.DefaultNavigator
 import com.bgpapp.navigation.NavigationCommand

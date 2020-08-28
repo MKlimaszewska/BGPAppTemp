@@ -18,4 +18,10 @@ class EventsViewModel(private val service: BGPService) : ViewModel() {
         _eventsItems.value = service.getEventsItems()
     }
 
+    fun onClickToLogIn() {
+
+    }
+    fun onClickExit() {
+
+    }
 }
