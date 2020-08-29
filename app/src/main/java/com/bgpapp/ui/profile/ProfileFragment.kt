@@ -34,6 +34,11 @@ class ProfileFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = RecyclerAdapter<CommentItem>(R.layout.comments_item)
         }
+
+//        userGames.apply {
+//            layoutManager = LinearLayoutManager(requireContext())
+//            adapter = RecyclerAdapter<GameItem>(R.layout.games_item)
+//        }
     }
     override fun onResume() {
         super.onResume()

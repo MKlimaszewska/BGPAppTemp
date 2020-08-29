@@ -14,10 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.events.EventsViewModel">
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="200dp"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,8 +27,8 @@
 
                 <ImageView
                     android:id="@+id/logobgp"
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/logo_back"
                     android:src="@drawable/logodice"
@@ -44,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="175dp"
+            android:layout_marginTop="120dp"
             android:layout_marginBottom="15dp">
 
             <ScrollView

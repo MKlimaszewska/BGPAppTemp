@@ -153,26 +153,41 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/userComments"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/commentsRecyclerView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintHeight_max="100dp"
-                        app:data="@{viewModel.listOfComments}"
+                        android:layout_height="200dp"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/email"
-                        tools:listitem="@layout/comments_item" />
+                        app:layout_constraintTop_toBottomOf="@id/email">
 
-                    <!--        <androidx.recyclerview.widget.RecyclerView-->
-                    <!--            android:id="@+id/userComments"-->
-                    <!--            android:layout_width="match_parent"-->
-                    <!--            android:layout_height="wrap_content"-->
-                    <!--            app:layout_constraintLeft_toLeftOf="parent"-->
-                    <!--            app:layout_constraintRight_toRightOf="parent"-->
-                    <!--            app:layout_constraintTop_toBottomOf="@id/usersOpinions"-->
-                    <!--            tools:listitem="@layout/user_comments_item"/>-->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/userComments"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:data="@{viewModel.listOfComments}"
+                            tools:listitem="@layout/comments_item" />
+                    </androidx.cardview.widget.CardView>
+
+
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="200dp"-->
+<!--                        android:layout_marginBottom="20dp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                        app:layout_constraintRight_toRightOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/commentsRecyclerView">-->
+
+<!--                        <androidx.recyclerview.widget.RecyclerView-->
+<!--                            android:id="@+id/userGames"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            app:data="@{viewModel.listOfGames}"-->
+<!--                            tools:listitem="@layout/games_item" />-->
+<!--                    </androidx.cardview.widget.CardView>-->
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>
         </androidx.cardview.widget.CardView>
