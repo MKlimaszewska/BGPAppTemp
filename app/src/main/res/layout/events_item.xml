@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:elevation="16dp"
         app:cardElevation="8dp"
+        android:onClick="@{() -> viewModel.onClick()}"
         android:layout_margin="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout

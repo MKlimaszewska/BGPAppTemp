@@ -1,5 +1,7 @@
 package com.bgpapp.service
 
+import com.bgpapp.navigation.NavigationCommand
+import com.bgpapp.ui.events.EventsFragmentDirections
 import com.bgpapp.ui.events.EventsItem
 import com.bgpapp.ui.profile.CommentItem
 import com.bgpapp.ui.profile.ProfileData
@@ -44,10 +46,11 @@ class BGPService {
     }
 
     suspend fun getEventsItems() = withContext(Dispatchers.IO) {
+        val navigationCommand = NavigationCommand.To(EventsFragmentDirections.toEventDetails())
         listOf(
-            EventsItem("Chińczyk","K6", "08.08", "18:00", "Piotrkowska 6", ""),
-            EventsItem("Chińczyk2","K6", "08.08", "18:00", "Piotrkowska 6", ""),
-            EventsItem("Chińczyk3","K6", "08.08", "18:00", "Piotrkowska 6", "")
+            EventsItem("Chińczyk","K6", "08.08", "18:00", "Piotrkowska 6", "", navigationCommand),
+            EventsItem("Chińczyk2","K6", "08.08", "18:00", "Piotrkowska 6", "", navigationCommand),
+            EventsItem("Chińczyk3","K6", "08.08", "18:00", "Piotrkowska 6", "", navigationCommand)
         )
     }
 

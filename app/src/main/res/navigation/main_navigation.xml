@@ -25,7 +25,11 @@
         android:id="@+id/events"
         android:name="com.bgpapp.ui.events.EventsFragment"
         android:label="fragment_events"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_events" >
+        <action
+            android:id="@+id/toEventDetails"
+            app:destination="@id/eventsDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="com.bgpapp.ui.profile.ProfileFragment"
@@ -67,6 +71,10 @@
         android:name="com.bgpapp.ui.pubs.PubDetailsFragment"
         android:label="fragment_pub_details"
         tools:layout="@layout/fragment_pub_details" />
+    <fragment
+        android:id="@+id/eventsDetailsFragment"
+        android:name="com.bgpapp.ui.events.details.EventsDetailsFragment"
+        android:label="EventsDetailsFragment" />
 
 
 </navigation>

@@ -1,21 +1,24 @@
 package com.bgpapp.ui.events
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.bgpapp.navigation.DefaultNavigator
+import com.bgpapp.navigation.Navigator
+import com.bgpapp.navigation.observeNavigation
 import com.bgpapp.service.BGPService
 import kotlinx.coroutines.launch
 
-class EventsViewModel(private val service: BGPService) : ViewModel() {
+class EventsViewModel(private val service: BGPService) : ViewModel(), Navigator by DefaultNavigator() {
 
     private val _eventsItems = MutableLiveData<List<EventsItem>>().apply {
         value = emptyList()
     }
     val EventsItems: LiveData<List<EventsItem>> = _eventsItems
 
-    fun getItems() = viewModelScope.launch {
+    fun getItems(lifecycleOwner: LifecycleOwner) = viewModelScope.launch {
         _eventsItems.value = service.getEventsItems()
+        _eventsItems.value?.onEach {
+            it.observeNavigation(lifecycleOwner)
+        }
     }
 
     fun onClickToLogIn() {
