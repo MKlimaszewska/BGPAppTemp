@@ -73,8 +73,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:drawableStart="@drawable/ic_lockpad_24dp"
-                            android:hint="Miejsce spotkania"
-                            android:inputType="textPassword" />
+                            android:hint="Miejsce spotkania" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,8 +91,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="Rodzaj spotkania"
-                            android:inputType="textPassword" />
+                            android:hint="Rodzaj spotkania" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,8 +110,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:drawableStart="@drawable/ic_lockpad_24dp"
-                            android:hint="Dostępne gry"
-                            android:inputType="textPassword" />
+                            android:hint="Dostępne gry"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -131,8 +128,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="Data spotkania"
-                            android:inputType="textPassword" />
+                            android:hint="Data spotkania" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,8 +146,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="Godzina spotkania"
-                            android:inputType="textPassword" />
+                            android:hint="Godzina spotkania"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 

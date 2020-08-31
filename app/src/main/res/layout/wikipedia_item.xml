@@ -12,16 +12,16 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:elevation="16dp"
-        app:cardElevation="8dp"
-        android:layout_margin="16dp">
+        app:cardElevation="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:onClick="@{() -> viewModel.navigateTo()}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#f6f6f6"
-            android:minHeight="275dp">
+            android:minHeight="275dp"
+            android:onClick="@{() -> viewModel.navigateTo()}">
 
             <ImageView
                 android:id="@+id/playerImage"
@@ -41,7 +41,7 @@
                 android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Chińczyk"
+                android:text="@{viewModel.title}"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -56,7 +56,7 @@
                 android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Ilość osób: 2-4"
+                android:text="@{viewModel.gamersNumber}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
                 android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Rodzaj: Strategiczna"
+                android:text="@{viewModel.category}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
                 android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Czas rozgrywki: 30-60 min"
+                android:text="@{viewModel.duration}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/numberOfGamers"
