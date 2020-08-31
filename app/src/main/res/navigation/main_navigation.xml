@@ -13,7 +13,11 @@
         tools:layout="@layout/fragment_registration" >
         <action
             android:id="@+id/mojeKomenda"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
 
     <fragment
@@ -28,13 +32,25 @@
         tools:layout="@layout/fragment_events" >
         <action
             android:id="@+id/toEventDetails"
-            app:destination="@id/eventsDetailsFragment" />
+            app:destination="@id/eventsDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="com.bgpapp.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/toProfileSettings"
+            app:destination="@id/profileSettingsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
     <fragment
         android:id="@+id/pubs"
         android:name="com.bgpapp.ui.pubs.PubsFragment"
@@ -42,10 +58,18 @@
         tools:layout="@layout/fragment_pubs" >
         <action
             android:id="@+id/toAddPubFragment"
-            app:destination="@id/addPubFragment" />
+            app:destination="@id/addPubFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
         <action
             android:id="@+id/toPubDetailsFragment"
-            app:destination="@id/pubDetailsFragment" />
+            app:destination="@id/pubDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
     <fragment
         android:id="@+id/wikipedia"
@@ -54,7 +78,11 @@
         tools:layout="@layout/fragment_wikipedia" >
         <action
             android:id="@+id/toWikipediaDetails"
-            app:destination="@id/wikipediaDetailsFragment" />
+            app:destination="@id/wikipediaDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
     <fragment
         android:id="@+id/wikipediaDetailsFragment"
@@ -75,6 +103,11 @@
         android:id="@+id/eventsDetailsFragment"
         android:name="com.bgpapp.ui.events.details.EventsDetailsFragment"
         android:label="EventsDetailsFragment" />
+    <fragment
+        android:id="@+id/profileSettingsFragment"
+        android:name="com.bgpapp.ui.profile.ProfileSettingsFragment"
+        android:label="fragment_profile_settings"
+        tools:layout="@layout/fragment_profile_settings" />
 
 
 </navigation>

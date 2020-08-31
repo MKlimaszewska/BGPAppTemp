@@ -1,10 +1,13 @@
 package com.bgpapp.ui.profile
 
 import androidx.lifecycle.*
+import com.bgpapp.navigation.DefaultNavigator
+import com.bgpapp.navigation.NavigationCommand
+import com.bgpapp.navigation.Navigator
 import com.bgpapp.service.BGPService
 import kotlinx.coroutines.launch
 
-class ProfileViewModel(private val service: BGPService) : ViewModel() {
+class ProfileViewModel(private val service: BGPService) : ViewModel(), Navigator by DefaultNavigator() {
 
     private val profileData = MutableLiveData<ProfileData>().apply {
         value = ProfileData()
@@ -42,6 +45,10 @@ class ProfileViewModel(private val service: BGPService) : ViewModel() {
     fun changeCommentsVisibility() {
         val actualValue = _commentsVisible.value ?: false
         _commentsVisible.value = !actualValue
+    }
+
+    fun toSettings() {
+        navigate(NavigationCommand.To(ProfileFragmentDirections.toProfileSettings()))
     }
 
 }
