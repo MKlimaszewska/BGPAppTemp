@@ -22,8 +22,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorPrimaryDark"
-                >
+                android:background="@color/colorPrimaryDark">
 
                 <ImageView
                     android:id="@+id/logobgp"
@@ -153,20 +152,22 @@
 
                     <Button
                         android:id="@+id/loginButton"
-                        android:layout_width="175dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/button"
                         android:onClick="@{() -> viewModel.onClickToLogIn()}"
                         android:text="@string/zarejestruj"
                         android:textColor="#ffffff"
+                        android:layout_marginRight="8dp"
                         app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/exitButton"
                         app:layout_constraintTop_toBottomOf="@id/hours" />
 
 
                     <Button
                         android:id="@+id/exitButton"
-                        android:layout_width="175dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="15dp"
@@ -174,9 +175,10 @@
                         android:onClick="@{() -> viewModel.onClickExit()}"
                         android:text="@string/anuluj"
                         android:textColor="#ffffff"
+                        android:layout_marginLeft="8dp"
                         app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/loginButton"
                         app:layout_constraintTop_toBottomOf="@id/hours" />
-                    <!--@{} - skladnia , view model to zmienna, button text to zmienna z ktorej dane beda prezentowane w wybranym miejscu -->
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>

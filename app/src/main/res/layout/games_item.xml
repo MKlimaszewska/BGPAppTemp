@@ -5,7 +5,7 @@
 <data>
     <variable
         name="viewModel"
-        type="com.bgpapp.ui.profile.GameViewModel" />
+        type="com.bgpapp.ui.wikipedia.WikipediaItem" />
 </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -38,7 +38,7 @@
                 android:layout_marginRight="28dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@{viewModel.gameName}"
+                android:text="@{viewModel.title}"
                 android:textColor="@color/colorPrimary"
                 android:textSize="30sp"
                 android:textStyle="bold"
