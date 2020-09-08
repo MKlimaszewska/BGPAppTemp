@@ -145,7 +145,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/button"
-                android:text="@string/zarejestruj"
+                android:text="Aktualizuj"
                 android:textColor="#ffffff" />
 
         </LinearLayout>

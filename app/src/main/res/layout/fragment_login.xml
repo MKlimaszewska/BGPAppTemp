@@ -16,7 +16,7 @@
             android:background="@drawable/background_login"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            tools:context=".ui.login.LoginFragment">
+            tools:context=".ui.login.LoginFragment">ma
 
 
             <ImageView

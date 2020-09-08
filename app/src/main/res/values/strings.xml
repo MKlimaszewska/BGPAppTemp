@@ -5,7 +5,9 @@
     <string name="zaloguj">Zaloguj</string>
     <string name="zarejestruj">Zarejestruj</string>
     <string name="nazwa_uzytkownika">   Nazwa użytkownika</string>
+    <string name="nazwa_uzytkownika2">Nazwa użytkownika*</string>
     <string name="haslo">   Hasło</string>
+    <string name="haslo2">Hasło*</string>
     <string name="przejdz_do_rejestracji">Nowy użytkownik? Przejdź do rejestracji</string>
     <string name="spotkania">Spotkania</string>
     <string name="baza_gier">Baza gier</string>
@@ -13,12 +15,20 @@
     <string name="miejsca">Miejsca</string>
     <string name="tw_j_profil">Twój profil</string>
     <string name="powtorz_haslo">Powtórz hasło</string>
+    <string name="powtorz_haslo2">Powtórz hasło*</string>
     <string name="imie">Imię</string>
+    <string name="imie2">Imię*</string>
     <string name="nazwisko">Nazwisko</string>
+    <string name="nazwisko2">Nazwisko*</string>
     <string name="data_urodzenia">Data urodzenia</string>
+    <string name="data_urodzenia2">Data urodzenia*</string>
     <string name="email">Email</string>
+    <string name="email2">Email*</string>
     <string name="zdjecie">Zdjęcie</string>
     <string name="anuluj">Anuluj</string>
     <string name="numer_telefonu">Numer telefonu</string>
+    <string name="numer_telefonu2">Numer telefonu*</string>
     <string name="komentarz">Komentarz</string>
+    <string name="dodaj">Dodaj</string>
+    <string name="adres">Adres</string>
 </resources>
