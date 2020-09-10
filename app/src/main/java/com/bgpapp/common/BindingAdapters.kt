@@ -1,8 +1,10 @@
 package com.bgpapp.common
 
 import android.view.View
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 @BindingAdapter("data")
 fun <T> setRecyclerViewProperties(recyclerView: RecyclerView, data: T) {
@@ -18,4 +20,9 @@ fun View.changeVisibility(value: Boolean) {
     } else {
         visibility = View.GONE
     }
+}
+
+@BindingAdapter("bgp:image")
+fun ImageView.setImage(value: String) {
+    Glide.with(this.context).load(value).into(this)
 }

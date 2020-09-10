@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.bgpapp.ui.events.details.EventsDetailsFragment" />
+            type="com.bgpapp.ui.events.details.EventDetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,13 +52,129 @@
                 android:layout_height="match_parent"
                 android:fillViewport="true">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
-                    android:paddingRight="15dp">
+                    android:paddingRight="15dp"
+                    android:orientation="vertical">
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/gameName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Turniej o koronę miasta!"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/description"
+                        app:startIconDrawable="@drawable/ic_baseline_category_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:focusable="false"
+                            android:hint="Kategoria: Turniej"
+                            android:inputType="none"
+                            android:text="" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/description"
+                        app:startIconDrawable="@drawable/ic_baseline_category_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:focusable="false"
+                            android:hint="Data: 23.06.2020"
+                            android:inputType="none"
+                            android:text="" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/description"
+                        app:startIconDrawable="@drawable/ic_baseline_category_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:focusable="false"
+                            android:hint="Miejsce: K6"
+                            android:inputType="none"
+                            android:text="" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/description"
+                        app:startIconDrawable="@drawable/ic_baseline_category_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:focusable="false"
+                            android:hint="Adres: Piotrkowska 12"
+                            android:inputType="none"
+                            android:text="" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/avaibleGames"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dostępne gry"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24dp"
+                        android:textStyle="bold"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:onClick="@{() -> viewModel.changeVisibility()}"
+                        app:layout_constraintTop_toBottomOf="@id/email"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/userGames"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:data="@{viewModel.listOfGames}"
+                        android:nestedScrollingEnabled="false"
+                        tools:listitem="@layout/games_item"
+                        android:visibility="@{viewModel.avaibleGamesVisible}"
+                        app:layout_constraintTop_toBottomOf="@id/avaibleGames"/>
+
+                </LinearLayout>
             </ScrollView>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

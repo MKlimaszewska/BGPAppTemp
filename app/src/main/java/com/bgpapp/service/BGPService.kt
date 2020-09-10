@@ -20,23 +20,24 @@ class BGPService {
                 "Chińczyk",
                 "Liczba graczy: " + "2-4",
                 "Czas gry: " + "20-60 min",
-                "Kategoria: " + "Losowa",
-                "1"
+                "Kategoria: " + "Towarzyska",
+                "1",
+                "https://image.ceneostatic.pl/data/products/20040984/i-adamigo-chinczyk.jpg"
 
             ), WikipediaItem(
-                "Chińczyk",
-                "Liczba graczy: " + "2-4",
+                "Warcaby",
+                "Liczba graczy: " + "2",
                 "Czas gry: " + "20-60 min",
-                "Kategoria: " + "Losowa",
-                "1"
-
+                "Kategoria: " + "Strategiczne",
+                "1",
+                "https://www.szachowo.pl/images/Foto_szachow/CHW81_warcaby_intarsja_64_pola/watermark/wpx_d5422ad878cd0110af9b4868188a6fcc.jpg"
             ), WikipediaItem(
-                "Chińczyk",
-                "Liczba graczy: " + "2-4",
-                "Czas gry: " + "20-60 min",
-                "Kategoria: " + "Losowa",
-                "1"
-
+                "Szachy",
+                "Liczba graczy: " + "2",
+                "Czas gry: " + "4-8 h",
+                "Kategoria: " + "Strategiczne",
+                "1",
+                "https://ffstatic.pl/umbra/umbra-szachy-buddy__65443_56ad112-s2500x2500.jpg"
             )
         )
     }
@@ -49,8 +50,8 @@ class BGPService {
         val navigationCommand = NavigationCommand.To(EventsFragmentDirections.toEventDetails())
         listOf(
             EventsItem("Chińczyk","K6", "08.08", "18:00", "Piotrkowska 6", "", navigationCommand),
-            EventsItem("Chińczyk2","K6", "08.08", "18:00", "Piotrkowska 6", "", navigationCommand),
-            EventsItem("Chińczyk3","K6", "08.08", "18:00", "Piotrkowska 6", "", navigationCommand)
+            EventsItem("Rebel Everdell","K6", "08.08", "12:00", "Kołątaja 17", "", navigationCommand),
+            EventsItem("Jumanji","Drzewko", "08.08", "14:30", "Wyścigowa 11/3", "", navigationCommand)
         )
     }
 
@@ -77,8 +78,8 @@ class BGPService {
         WikipediaData(
             "Chińczyk",
             "Liczba graczy: " + "2-4",
-            "Czas gry: " + "20-40 min",
-            "Kategoria: " + "Losowa",
+            "Czas gry: " + "20-60 min",
+            "Kategoria: " + "Towarzyska",
             "1",
             "Chińczyk – gra planszowa przeznaczona dla dwóch, trzech lub czterech osóbich.\n" +
                     "Czasami rozbija związki! ",

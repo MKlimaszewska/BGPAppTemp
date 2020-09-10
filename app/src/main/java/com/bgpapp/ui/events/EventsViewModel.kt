@@ -12,7 +12,7 @@ class EventsViewModel(private val service: BGPService) : ViewModel(), Navigator 
     private val _eventsItems = MutableLiveData<List<EventsItem>>().apply {
         value = emptyList()
     }
-    val EventsItems: LiveData<List<EventsItem>> = _eventsItems
+    val eventsItems: LiveData<List<EventsItem>> = _eventsItems
 
     fun getItems(lifecycleOwner: LifecycleOwner) = viewModelScope.launch {
         _eventsItems.value = service.getEventsItems()

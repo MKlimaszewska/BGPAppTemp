@@ -9,7 +9,8 @@ data class WikipediaItem(
     val gamersNumber: String = "",
     val duration: String = "",
     val category: String = "",
-    val gameId: String = ""
+    val gameId: String = "",
+    val photo: String = ""
 ) : Navigator by DefaultNavigator() {
 
     fun navigateTo() {

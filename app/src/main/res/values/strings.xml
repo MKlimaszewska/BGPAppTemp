@@ -31,4 +31,8 @@
     <string name="komentarz">Komentarz</string>
     <string name="dodaj">Dodaj</string>
     <string name="adres">Adres</string>
+    <string name="miejsce">Miejsce: %s</string>
+    <string name="adress">Adres: %s</string>
+    <string name="date">Data: %s</string>
+    <string name="hour">Godzina: %s</string>
 </resources>

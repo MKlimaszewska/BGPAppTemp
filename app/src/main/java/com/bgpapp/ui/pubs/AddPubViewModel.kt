@@ -15,6 +15,7 @@ class AddPubViewModel : ViewModel(), Navigator by DefaultNavigator() {
 
     val pubName = MutableLiveData<String>()
     val pubLocation = MutableLiveData<String>()
+    val avaibleGames = MutableLiveData<String>()
 
     val marker = MutableLiveData<Marker>()
 
