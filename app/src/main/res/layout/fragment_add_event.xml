@@ -7,7 +7,11 @@
 
         <variable
             name="viewModel"
-            type="com.bgpapp.ui.events.EventsViewModel" />
+            type="com.bgpapp.ui.addevent.AddEventViewModel" />
+
+        <variable
+            name="meetingSpinnerAdapter"
+            type="android.widget.ArrayAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -71,7 +75,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:drawableStart="@drawable/ic_lockpad_24dp"
-                            android:hint="Tytuł spotkania" />
+                            android:hint="Tytuł spotkania"
+                            android:text="@={viewModel.title}"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
@@ -89,7 +94,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:drawableStart="@drawable/ic_lockpad_24dp"
-                            android:hint="Miejsce spotkania" />
+                            android:hint="Miejsce spotkania"
+                            android:text="@={viewModel.localization}"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,13 +113,14 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="@string/adres" />
+                            android:hint="@string/adres"
+                            android:text="@={viewModel.address}"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/meetingType"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -122,10 +129,13 @@
                         app:layout_constraintTop_toBottomOf="@id/adress"
                         app:startIconDrawable="@drawable/ic_contacts_black_24dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <AutoCompleteTextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="Rodzaj spotkania" />
+                            android:editable="false"
+                            android:hint="Rodzaj spotkania"
+                            android:text="@={viewModel.typeOfMeeting}"
+                            app:adapter="@{meetingSpinnerAdapter}"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,7 +154,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:drawableStart="@drawable/ic_lockpad_24dp"
-                            android:hint="Dostępne gry"/>
+                            android:hint="Dostępne gry"
+                            android:text="@={viewModel.avaibleGames}"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -162,7 +173,10 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="Data spotkania" />
+                            android:id="@+id/date"
+                            android:hint="Data spotkania"
+                            android:text="@{viewModel.date}"
+                            android:focusableInTouchMode="false" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -178,9 +192,12 @@
                         app:startIconDrawable="@drawable/ic_contact_mail_black_24dp">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/hour"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="Godzina spotkania"/>
+                            android:hint="Godzina spotkania"
+                            android:text="@{viewModel.hour}"
+                            android:focusableInTouchMode="false"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -191,7 +208,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/button"
-                        android:onClick="@{() -> viewModel.onClickToLogIn()}"
                         android:text="@string/dodaj"
                         android:textColor="#ffffff"
                         android:layout_marginRight="8dp"
@@ -207,7 +223,6 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="15dp"
                         android:background="@drawable/button"
-                        android:onClick="@{() -> viewModel.onClickExit()}"
                         android:text="@string/anuluj"
                         android:textColor="#ffffff"
                         android:layout_marginLeft="8dp"

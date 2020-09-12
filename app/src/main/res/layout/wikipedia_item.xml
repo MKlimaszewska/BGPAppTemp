@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.bgpapp.ui.wikipedia.WikipediaItem" />
+            type="com.bgpapp.ui.wikipedia.WikipediaInformation" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:background="#f6f6f6"
             android:minHeight="275dp"
-            android:onClick="@{() -> viewModel.navigateTo()}">
+            android:onClick="@{() -> viewModel.onClick()}">
 
             <ImageView
                 android:id="@+id/playerImage"
@@ -31,7 +31,7 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/picture_back"
                 android:src="@drawable/zdjecie_gra"
-                bgp:image="@{viewModel.photo}"
+                bgp:image="@{viewModel.wikipediaItem.photo}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,7 +43,7 @@
                 android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@{viewModel.title}"
+                android:text="@{viewModel.wikipediaItem.title}"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -58,7 +58,7 @@
                 android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@{viewModel.gamersNumber}"
+                android:text="@{viewModel.wikipediaItem.gamersNumber}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@
                 android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@{viewModel.category}"
+                android:text="@{viewModel.wikipediaItem.category}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +87,7 @@
                 android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@{viewModel.duration}"
+                android:text="@{viewModel.wikipediaItem.duration}"
                 android:textColor="@color/colorGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/numberOfGamers"

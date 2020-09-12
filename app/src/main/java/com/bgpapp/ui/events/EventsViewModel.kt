@@ -9,10 +9,10 @@ import kotlinx.coroutines.launch
 
 class EventsViewModel(private val service: BGPService) : ViewModel(), Navigator by DefaultNavigator() {
 
-    private val _eventsItems = MutableLiveData<List<EventsItem>>().apply {
+    private val _eventsItems = MutableLiveData<List<EventInformation>>().apply {
         value = emptyList()
     }
-    val eventsItems: LiveData<List<EventsItem>> = _eventsItems
+    val eventsItems: LiveData<List<EventInformation>> = _eventsItems
 
     fun getItems(lifecycleOwner: LifecycleOwner) = viewModelScope.launch {
         _eventsItems.value = service.getEventsItems()

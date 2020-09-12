@@ -7,10 +7,10 @@ import kotlinx.coroutines.launch
 
 class WikipediaViewModel(private val service: BGPService) : ViewModel() {
 
-    private val _wikipediaItems = MutableLiveData<List<WikipediaItem>>().apply {
+    private val _wikipediaItems = MutableLiveData<List<WikipediaInformation>>().apply {
         value = emptyList()
     }
-    val wikipediaItems: LiveData<List<WikipediaItem>> = _wikipediaItems
+    val wikipediaItems: LiveData<List<WikipediaInformation>> = _wikipediaItems
 
     fun getItems(lifecycleOwner: LifecycleOwner) = viewModelScope.launch {
         _wikipediaItems.value = service.getWikipediaItems()

@@ -35,4 +35,5 @@
     <string name="adress">Adres: %s</string>
     <string name="date">Data: %s</string>
     <string name="hour">Godzina: %s</string>
+    <string name="category">Kategoria: %s</string>
 </resources>

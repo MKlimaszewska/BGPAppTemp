@@ -88,7 +88,11 @@
         android:id="@+id/wikipediaDetailsFragment"
         android:name="com.bgpapp.ui.wikipedia.details.WikipediaDetailsFragment"
         android:label="fragment_wikipedia_details"
-        tools:layout="@layout/fragment_wikipedia_details" />
+        tools:layout="@layout/fragment_wikipedia_details" >
+        <argument
+            android:name="wikipediaItem"
+            app:argType="com.bgpapp.ui.wikipedia.WikipediaItem" />
+    </fragment>
     <fragment
         android:id="@+id/addPubFragment"
         android:name="com.bgpapp.ui.pubs.AddPubFragment"
@@ -102,7 +106,11 @@
     <fragment
         android:id="@+id/eventsDetailsFragment"
         android:name="com.bgpapp.ui.events.details.EventsDetailsFragment"
-        android:label="EventsDetailsFragment" />
+        android:label="EventsDetailsFragment" >
+        <argument
+            android:name="eventsItem"
+            app:argType="com.bgpapp.ui.events.EventsItem"/>
+    </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
         android:name="com.bgpapp.ui.profile.ProfileSettingsFragment"

@@ -1,8 +1,7 @@
 package com.bgpapp.ui.events
 
-import com.bgpapp.navigation.DefaultNavigator
-import com.bgpapp.navigation.NavigationCommand
-import com.bgpapp.navigation.Navigator
+import com.bgpapp.ui.wikipedia.WikipediaItem
+import java.io.Serializable
 
 data class EventsItem(
     val title: String,
@@ -11,11 +10,6 @@ data class EventsItem(
     val time: String,
     val localization: String,
     val photoUrl: String,
-    val navigationCommand: NavigationCommand
-): Navigator by DefaultNavigator() {
-
-    fun onClick() {
-        navigate(navigationCommand)
-    }
-
-}
+    val avaibleGames: List<WikipediaItem>,
+    val category: String
+): Serializable

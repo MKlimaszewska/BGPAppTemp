@@ -1,6 +1,8 @@
 package com.bgpapp.common
 
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -25,4 +27,9 @@ fun View.changeVisibility(value: Boolean) {
 @BindingAdapter("bgp:image")
 fun ImageView.setImage(value: String) {
     Glide.with(this.context).load(value).into(this)
+}
+
+@BindingAdapter("adapter")
+fun AutoCompleteTextView.setupAdapter(adapter: ArrayAdapter<*>) {
+    setAdapter(adapter)
 }

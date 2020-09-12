@@ -4,15 +4,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.bgpapp.ui.events.EventsItem
 import com.bgpapp.ui.wikipedia.WikipediaItem
 
-class EventDetailsViewModel : ViewModel() {
+class EventDetailsViewModel(eventsItem: EventsItem) : ViewModel() {
 
-    private val _avaibleGamesVisible = MutableLiveData<Boolean>().apply {
+    val title = eventsItem.title
+    val date = eventsItem.date
+    val place = eventsItem.place
+    val address = eventsItem.localization
+    val avaibleGames = eventsItem.avaibleGames
+    val category = eventsItem.category
+    val _avaibleGamesVisible = MutableLiveData<Boolean>().apply {
         value = false
     }
     val avaibleGamesVisible: LiveData<Boolean> = _avaibleGamesVisible
-    val listOfGames = listOf<WikipediaItem>(WikipediaItem("Chińczyk"), WikipediaItem("Szachy"), WikipediaItem("Warcaby"))
 
     fun changeVisibility() {
         val actualValue = _avaibleGamesVisible.value ?: false

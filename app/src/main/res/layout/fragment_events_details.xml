@@ -64,7 +64,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Turniej o koronę miasta!"
+                        android:text="@{viewModel.title}"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="30dp"
@@ -87,7 +87,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:focusable="false"
-                            android:hint="Kategoria: Turniej"
+                            android:hint="@{String.format(@string/category, viewModel.category)}"
                             android:inputType="none"
                             android:text="" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -106,7 +106,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:focusable="false"
-                            android:hint="Data: 23.06.2020"
+                            android:hint="@{String.format(@string/date, viewModel.date)}"
                             android:inputType="none"
                             android:text="" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -125,7 +125,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:focusable="false"
-                            android:hint="Miejsce: K6"
+                            android:hint="@{String.format(@string/miejsce, viewModel.place)}"
                             android:inputType="none"
                             android:text="" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -144,7 +144,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:focusable="false"
-                            android:hint="Adres: Piotrkowska 12"
+                            android:hint="@{String.format(@string/adress, viewModel.address)}"
                             android:inputType="none"
                             android:text="" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -168,7 +168,7 @@
                         android:id="@+id/userGames"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:data="@{viewModel.listOfGames}"
+                        app:data="@{viewModel.avaibleGames}"
                         android:nestedScrollingEnabled="false"
                         tools:listitem="@layout/games_item"
                         android:visibility="@{viewModel.avaibleGamesVisible}"

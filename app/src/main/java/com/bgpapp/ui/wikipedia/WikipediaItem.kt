@@ -1,8 +1,6 @@
 package com.bgpapp.ui.wikipedia
 
-import com.bgpapp.navigation.DefaultNavigator
-import com.bgpapp.navigation.NavigationCommand
-import com.bgpapp.navigation.Navigator
+import java.io.Serializable
 
 data class WikipediaItem(
     val title: String = "",
@@ -10,11 +8,7 @@ data class WikipediaItem(
     val duration: String = "",
     val category: String = "",
     val gameId: String = "",
-    val photo: String = ""
-) : Navigator by DefaultNavigator() {
-
-    fun navigateTo() {
-        navigate(NavigationCommand.To(WikipediaFragmentDirections.toWikipediaDetails()))
-    }
-
-}
+    val photo: String = "",
+    val description: String = "",
+    val equipment: String = ""
+) : Serializable
