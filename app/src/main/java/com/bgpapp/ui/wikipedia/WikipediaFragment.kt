@@ -12,11 +12,13 @@ import com.bgpapp.R
 import com.bgpapp.common.RecyclerAdapter
 import com.bgpapp.databinding.FragmentWikipediaBinding
 import com.bgpapp.service.BGPService
+import com.bgpapp.service.RestService
+import com.bgpapp.service.RestServiceBuilder
 import kotlinx.android.synthetic.main.fragment_wikipedia.*
 
 class WikipediaFragment : Fragment() {
 
-    private val service = BGPService()
+    private val service = BGPService(RestServiceBuilder.build(RestService::class.java))
     private val viewModel = WikipediaViewModel(service)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

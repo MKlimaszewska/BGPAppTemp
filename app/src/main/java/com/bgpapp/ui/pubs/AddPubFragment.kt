@@ -12,6 +12,9 @@ import com.bgpapp.R
 import com.bgpapp.common.EventObserver
 import com.bgpapp.databinding.FragmentAddPubBinding
 import com.bgpapp.navigation.observeNavigation
+import com.bgpapp.service.BGPService
+import com.bgpapp.service.RestService
+import com.bgpapp.service.RestServiceBuilder
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
@@ -20,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_add_pub.*
 
 class AddPubFragment : Fragment() {
 
-    private val viewModel = AddPubViewModel()
+    private val viewModel = AddPubViewModel(BGPService(RestServiceBuilder.build(RestService::class.java)))
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewModel.observeNavigation(this)

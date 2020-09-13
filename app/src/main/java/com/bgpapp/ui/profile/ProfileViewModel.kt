@@ -5,7 +5,11 @@ import com.bgpapp.navigation.DefaultNavigator
 import com.bgpapp.navigation.NavigationCommand
 import com.bgpapp.navigation.Navigator
 import com.bgpapp.service.BGPService
+import com.bgpapp.service.Config
+import com.bgpapp.ui.wikipedia.WikipediaItem
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ProfileViewModel(private val service: BGPService) : ViewModel(), Navigator by DefaultNavigator() {
 
@@ -19,22 +23,36 @@ class ProfileViewModel(private val service: BGPService) : ViewModel(), Navigator
         value = false
     }
 
-    val firstName = Transformations.map(profileData) { it.name }
-    val surname = Transformations.map(profileData) { it.surname }
-    val birthDate = Transformations.map(profileData) { it.birthDate }
-    val listOfGames = Transformations.map(profileData) { it.listOfGames }
-    val listOfComments = Transformations.map(profileData) { it.listOfComments }
-    val phoneNumber = Transformations.map(profileData) { it.phoneNumber }
-    val photoUrl = Transformations.map(profileData) { it.photoUrl }
-    val userName = Transformations.map(profileData) { it.username }
-    val userId = Transformations.map(profileData) { it.userId }
-    val listOfMedals = Transformations.map(profileData) { it.listOfMedals }
-    val email = Transformations.map(profileData) { it.email }
+    val firstName = MutableLiveData<String>()
+    val surname = MutableLiveData<String>()
+    val birthDate = MutableLiveData<String>()
+    val listOfGames = MutableLiveData<List<WikipediaItem>>().apply {
+        value = emptyList()
+    }
+    val listOfComments = MutableLiveData<List<CommentItem>>().apply {
+        value = emptyList()
+    }
+    val photoUrl = MutableLiveData<String>()
+    val userName = MutableLiveData<String>()
+    val userId = MutableLiveData<String>()
+    val listOfMedals = emptyList<String>()
+    val email = MutableLiveData<String>()
+
     val avaibleGamesVisible: LiveData<Boolean> = _avaibleGamesVisible
     val commentsVisible: LiveData<Boolean> = _commentsVisible
 
     fun loadData() = viewModelScope.launch {
-        profileData.value = service.getProfileData()
+        firstName.value = Config.loggedId.name
+        surname.value = Config.loggedId.surname
+
+        val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy hh:mm")
+
+        birthDate.value = service.prepareDate(Date(Config.loggedId.birthDate), simpleDateFormat)
+        photoUrl.value = Config.loggedId.photoUrl
+        userName.value = Config.loggedId.username
+        email.value = Config.loggedId.email
+        listOfGames.value = Config.loggedId.gamesInPossession.map { WikipediaItem(it.name) }
+        listOfComments.value = Config.loggedId.comments.map { CommentItem(comment = it.content ?: "Pusty komentarz", userName = it.userId?.name ?: "") }
     }
 
     fun changeVisibility() {

@@ -8,18 +8,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.lifecycleScope
 import com.bgpapp.R
 import com.bgpapp.common.NoFilterArrayAdapter
 import com.bgpapp.databinding.FragmentAddEventBinding
+import com.bgpapp.navigation.observeNavigation
+import com.bgpapp.service.BGPService
+import com.bgpapp.service.RestService
+import com.bgpapp.service.RestServiceBuilder
 import kotlinx.android.synthetic.main.fragment_add_event.*
+import kotlinx.coroutines.launch
 import java.util.*
 
 class AddEventFragment : Fragment() {
 
-    private val viewModel = AddEventViewModel()
+    private val viewModel = AddEventViewModel(BGPService(RestServiceBuilder.build(RestService::class.java)))
     private val dateOfBirthDateListener =
         DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
             viewModel.updateDateOfBirth(year, month, dayOfMonth)
@@ -27,24 +34,16 @@ class AddEventFragment : Fragment() {
     private val timeListener = TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
         viewModel.updateHour(hourOfDay, minute)
     }
+    private lateinit var adapter: ArrayAdapter<String>
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return DataBindingUtil.inflate<FragmentAddEventBinding>(
-            inflater,
-            R.layout.fragment_add_event,
-            container,
-            false
-        ).also {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        viewModel.observeNavigation(this)
+        adapter = ArrayAdapter<String>(requireContext(), R.layout.support_simple_spinner_dropdown_item, android.R.id.text1)
+        return DataBindingUtil.inflate<FragmentAddEventBinding>(inflater, R.layout.fragment_add_event, container, false).also {
             it.lifecycleOwner = this
             it.viewModel = viewModel
-            it.meetingSpinnerAdapter = NoFilterArrayAdapter<String>(
-                requireContext(),
-                R.layout.support_simple_spinner_dropdown_item,
-                listOf("Turniej", "Towarzyskie")
-            )
+            it.meetingSpinnerAdapter = NoFilterArrayAdapter<String>(requireContext(), R.layout.support_simple_spinner_dropdown_item, listOf("TOURNAMENT", "CASUAL"))
+            it.placeSpinnerAdapter = adapter
         }.root
     }
 
@@ -60,6 +59,10 @@ class AddEventFragment : Fragment() {
                 Calendar.getInstance().get(Calendar.MONTH),
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
             ).show()
+        }
+        lifecycleScope.launch {
+            adapter.addAll(viewModel.getPubs())
+            adapter.notifyDataSetChanged()
         }
 
         hour.setOnClickListener {

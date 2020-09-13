@@ -1,72 +1,76 @@
 package com.bgpapp.service
 
+import android.util.Log
 import com.bgpapp.navigation.NavigationCommand
+import com.bgpapp.ui.addevent.model.EventToAdd
 import com.bgpapp.ui.events.EventInformation
 import com.bgpapp.ui.events.EventsFragmentDirections
 import com.bgpapp.ui.events.EventsItem
+import com.bgpapp.ui.events.model.EventBEItem
+import com.bgpapp.ui.login.LoginResponse
+import com.bgpapp.ui.login.UserToLoginData
 import com.bgpapp.ui.profile.CommentItem
 import com.bgpapp.ui.profile.ProfileData
-import com.bgpapp.ui.pubs.PubsItem
+import com.bgpapp.ui.pubs.Pub
+import com.bgpapp.ui.pubs.model.PubBE
+import com.bgpapp.ui.registration.RegisterData
 import com.bgpapp.ui.wikipedia.WikipediaFragmentDirections
 import com.bgpapp.ui.wikipedia.WikipediaInformation
 import com.bgpapp.ui.wikipedia.WikipediaItem
 import com.bgpapp.ui.wikipedia.details.WikipediaData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.w3c.dom.Comment
+import java.text.SimpleDateFormat
+import java.util.*
 
-class BGPService {
+class BGPService(private val rest: RestService) {
 
     suspend fun getWikipediaItems() = withContext(Dispatchers.IO) {
-        val wikipedia1 = WikipediaItem(
-            "Chińczyk",
-            "Liczba graczy: " + "2-4",
-            "Czas gry: " + "20-60 min",
-            "Kategoria: " + "Towarzyska",
-            "1",
-            "https://image.ceneostatic.pl/data/products/20040984/i-adamigo-chinczyk.jpg",
-            "Chińczyk - gra planszowa przeznaczona dla dwóch, trzehc lub czterech osobnychgraczy czasami rozbija związki!",
-            "Wyposażenie: palnsza, 16 pionków, kostka do rzucania"
+        val items = rest.getGames()
+        val wikipediaItems = items.map { WikipediaItem(it.name, it.playerCount.toString(), it.duration, it.category, it.id.toString(), it.photoUrl, "desc", it.notes) }
+        val wikipediaInformation = wikipediaItems.map { WikipediaInformation(it, NavigationCommand.To(WikipediaFragmentDirections.toWikipediaDetails(it))) }
+        wikipediaInformation
+    }
 
-        )
-        val wikipedia2 = WikipediaItem(
-        "Warcaby",
-        "Liczba graczy: " + "2",
-        "Czas gry: " + "20-60 min",
-        "Kategoria: " + "Strategiczne",
-        "1",
-        "https://www.szachowo.pl/images/Foto_szachow/CHW81_warcaby_intarsja_64_pola/watermark/wpx_d5422ad878cd0110af9b4868188a6fcc.jpg"
-        )
-        val wikipedia3 = WikipediaItem(
-        "Szachy",
-        "Liczba graczy: " + "2",
-        "Czas gry: " + "4-8 h",
-        "Kategoria: " + "Strategiczne",
-        "1",
-        "https://ffstatic.pl/umbra/umbra-szachy-buddy__65443_56ad112-s2500x2500.jpg"
-        )
-        val navigationCommand1 = NavigationCommand.To(WikipediaFragmentDirections.toWikipediaDetails(wikipedia1))
-        val navigationCommand2 = NavigationCommand.To(WikipediaFragmentDirections.toWikipediaDetails(wikipedia2))
-        val navigationCommand3 = NavigationCommand.To(WikipediaFragmentDirections.toWikipediaDetails(wikipedia3))
-        listOf(
-            WikipediaInformation(wikipedia1, navigationCommand1),
-            WikipediaInformation(wikipedia2, navigationCommand2),
-            WikipediaInformation(wikipedia3, navigationCommand3)
-        )
+    suspend fun getGames() = withContext(Dispatchers.IO) {
+        rest.getGames()
     }
 
     suspend fun getPubsItems() = withContext(Dispatchers.IO) {
-        listOf(PubsItem("Item 1"), PubsItem("Item 2"), PubsItem("Item 3"))
+        val pubs = rest.getPubs()
+        val p = pubs.map { Pub(it.name, it.address ?: "Nie ma :)", it.lat, it.lon, it.games.map { it.id }) }
+        p
     }
 
-    suspend fun getEventsItems() = withContext(Dispatchers.IO) {
-        val item1 = EventsItem("Chińczyk","K6", "08.08", "18:00", "Piotrkowska 6", "", listOf(WikipediaItem("Szachy")), "Turniej")
-        val item2 = EventsItem("Rebel Everdell","K6", "08.08", "12:00", "Kołątaja 17", "", emptyList(), "Turniej")
-        val item3 = EventsItem("Jumanji","Drzewko", "08.08", "14:30", "Wyścigowa 11/3", "", listOf(WikipediaItem("Chińczyk")), "Spotkanie")
-        val navigationCommand1 = NavigationCommand.To(EventsFragmentDirections.toEventDetails(item1))
-        listOf(
-            EventInformation(item1, navigationCommand1)
-        )
+    suspend fun getEventsItems(): List<EventInformation> = withContext(Dispatchers.IO) {
+
+        val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy hh:mm")
+
+        val list: List<EventBEItem> = rest.getEvents()
+        val items = list.map { EventsItem(
+            title = it.title ?: "Brak tytulu",
+            place = it.place.name,
+            date = prepareDate(Date(it.meetingDate), simpleDateFormat),
+            time = prepareHour(Date(it.meetingDate), simpleDateFormat),
+            localization = it.place.name,
+            photoUrl = "",
+            avaibleGames = it.availableGames.map { WikipediaItem(it.name) },
+            category = it.meetingType
+        ) }
+        val toReturn: List<EventInformation> = items.map {
+            EventInformation(it, NavigationCommand.To(EventsFragmentDirections.toEventDetails(it)))
+        }
+        toReturn
+    }
+
+    fun prepareDate(date: Date, format: SimpleDateFormat): String {
+        val stringDate = format.format(date)
+        return stringDate.split(" ")[0]
+    }
+
+    private fun prepareHour(date: Date, format: SimpleDateFormat): String {
+        val stringDate = format.format(date)
+        return stringDate.split(" ")[1]
     }
 
     suspend fun getProfileData() = withContext(Dispatchers.IO) {
@@ -104,7 +108,35 @@ class BGPService {
     }
 
     suspend fun getPubs() = withContext(Dispatchers.IO) {
-        MockedBackend.pubs
+        val response = rest.getPubs()
+        response
+    }
+
+    fun findPubByName(pubs: List<PubBE>, name: String): PubBE {
+        val pub = pubs.filter { it.name == name }
+        return pub.first()
+    }
+
+    suspend fun register(registerData: RegisterData) {
+        val response = rest.registerUser(registerData)
+        Log.i("supertest123", response.toString())
+    }
+
+    suspend fun login(loginData: UserToLoginData) {
+        val response: LoginResponse = rest.loginUser(loginData)
+        Config.token = response.accessToken
+        Config.loggedId = response.userInfo
+        Log.i("supertest123 login", Config.token)
+    }
+
+    suspend fun addEvent(eventToAdd: EventToAdd) {
+        val response = rest.addEvent(eventToAdd)
+        Log.i("supertest123", response.toString())
+    }
+
+    suspend fun addPub(pub: Pub) {
+        val response = rest.addPub(pub)
+        Log.i("supertest123", response.toString())
     }
 
 

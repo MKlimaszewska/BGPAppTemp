@@ -13,6 +13,8 @@ import com.bgpapp.navigation.NavigationCommand
 import com.bgpapp.navigation.navigate
 import com.bgpapp.navigation.observeNavigation
 import com.bgpapp.service.BGPService
+import com.bgpapp.service.RestService
+import com.bgpapp.service.RestServiceBuilder
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
@@ -22,7 +24,7 @@ import kotlinx.android.synthetic.main.fragment_pubs.*
 
 class PubsFragment : Fragment() {
 
-    private val service = BGPService()
+    private val service = BGPService(RestServiceBuilder.build(RestService::class.java))
     private val viewModel = PubsViewModel(service)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -39,7 +41,7 @@ class PubsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getItems()
+       // viewModel.getItems()
         mapView.onResume()
         lifecycleScope.launchWhenResumed {
             updateMap()
@@ -51,12 +53,12 @@ class PubsFragment : Fragment() {
         val pubs: List<Pub> = viewModel.getPubs()
         pubs.forEach {
             googleMap.addMarker(MarkerOptions()
-                .position(LatLng(it.lat, it.lng))
+                .position(LatLng(it.lat, it.lon))
                 .title(it.name)
                 .snippet("Address: ${it.address}"))
         }
         googleMap.setOnInfoWindowClickListener {
-            navigate(NavigationCommand.To(PubsFragmentDirections.toPubDetailsFragment()))
+            navigate(NavigationCommand.To(PubsFragmentDirections.toPubDetailsFragment(it.title)))
         }
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(51.7577506, 19.4344588), 5f))

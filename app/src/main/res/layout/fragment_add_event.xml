@@ -12,6 +12,9 @@
         <variable
             name="meetingSpinnerAdapter"
             type="android.widget.ArrayAdapter" />
+        <variable
+            name="placeSpinnerAdapter"
+            type="android.widget.ArrayAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,7 +84,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/meetingPlace"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -90,31 +93,13 @@
                         app:layout_constraintTop_toBottomOf="@id/title"
                         app:startIconDrawable="@drawable/ic_person_black_24dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <AutoCompleteTextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:drawableStart="@drawable/ic_lockpad_24dp"
                             android:hint="Miejsce spotkania"
-                            android:text="@={viewModel.localization}"/>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/adress"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/meetingPlace"
-                        app:startIconDrawable="@drawable/ic_home_black_24dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:hint="@string/adres"
-                            android:text="@={viewModel.address}"/>
+                            android:text="@={viewModel.localization}"
+                            app:adapter="@{placeSpinnerAdapter}"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,7 +111,7 @@
                         android:layout_marginTop="10dp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/adress"
+                        app:layout_constraintTop_toBottomOf="@id/meetingPlace"
                         app:startIconDrawable="@drawable/ic_contacts_black_24dp">
 
                         <AutoCompleteTextView
@@ -210,6 +195,7 @@
                         android:background="@drawable/button"
                         android:text="@string/dodaj"
                         android:textColor="#ffffff"
+                        android:onClick="@{() -> viewModel.addEvent()}"
                         android:layout_marginRight="8dp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/exitButton"

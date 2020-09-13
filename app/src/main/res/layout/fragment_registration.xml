@@ -50,7 +50,8 @@
                     android:layout_height="match_parent"
                     android:drawableStart="@drawable/ic_lockpad_24dp"
                     android:hint="@string/nazwa_uzytkownika2"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:text="@={viewModel.username}"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,6 +72,7 @@
                     android:layout_height="match_parent"
                     android:drawableStart="@drawable/ic_lock_black_24dp"
                     android:hint="@string/haslo2"
+                    android:text="@={viewModel.password}"
                     android:inputType="textPassword" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -110,6 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/imie2"
+                    android:text="@={viewModel.name}"
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -130,6 +133,7 @@
                     android:layout_height="match_parent"
                     android:drawableStart="@drawable/ic_lockpad_24dp"
                     android:hint="@string/nazwisko2"
+                    android:text="@={viewModel.surname}"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -149,6 +153,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/data_urodzenia2"
+                    android:text="@{viewModel.birthDate}"
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -168,6 +173,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/email2"
+                    android:text="@={viewModel.email}"
                     android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -206,6 +212,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/zdjecie"
+                    android:text="@={viewModel.photoUrl}"
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -229,7 +236,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button"
-                android:onClick="@{() -> viewModel.onClickToLogIn()}"
+                android:onClick="@{() -> viewModel.onClickToRegister()}"
                 android:text="@string/zarejestruj"
                 android:textColor="#ffffff"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -243,7 +250,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/button"
-                android:onClick="@{() -> viewModel.onClickToLogIn()}"
+                android:onClick="@{() -> viewModel.exit()}"
                 android:text="@string/anuluj"
                 android:textColor="#ffffff"
                 app:layout_constraintBottom_toBottomOf="parent"

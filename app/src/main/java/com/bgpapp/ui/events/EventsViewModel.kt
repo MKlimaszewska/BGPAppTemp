@@ -20,11 +20,4 @@ class EventsViewModel(private val service: BGPService) : ViewModel(), Navigator 
             it.observeNavigation(lifecycleOwner)
         }
     }
-
-    fun onClickToLogIn() {
-
-    }
-    fun onClickExit() {
-
-    }
 }

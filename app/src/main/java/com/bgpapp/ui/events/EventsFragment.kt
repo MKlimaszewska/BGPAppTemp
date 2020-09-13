@@ -12,10 +12,12 @@ import com.bgpapp.common.RecyclerAdapter
 import com.bgpapp.databinding.FragmentEventsBinding
 import com.bgpapp.navigation.observeNavigation
 import com.bgpapp.service.BGPService
+import com.bgpapp.service.RestService
+import com.bgpapp.service.RestServiceBuilder
 import kotlinx.android.synthetic.main.fragment_events.*
 
 class EventsFragment : Fragment() {
-    private val service = BGPService()
+    private val service = BGPService(RestServiceBuilder.build(RestService::class.java))
     private val viewModel = EventsViewModel(service)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewModel.observeNavigation(this)

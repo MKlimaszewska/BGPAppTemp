@@ -44,6 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:drawableStart="@drawable/ic_person_black_24dp"
+                    android:text="@={viewModel.username}"
                     android:hint="@string/nazwa_uzytkownika" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -64,6 +65,7 @@
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
                     android:drawableStart="@drawable/ic_lockpad_24dp"
+                    android:text="@={viewModel.password}"
                     android:hint="@string/haslo" />
 
             </com.google.android.material.textfield.TextInputLayout>

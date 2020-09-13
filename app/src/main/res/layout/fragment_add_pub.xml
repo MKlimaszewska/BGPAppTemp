@@ -42,7 +42,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={viewModel.avaibleGames}"
+                android:text="@={viewModel.pubLocation}"
                 android:hint="Lokalizacja pubu" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -59,7 +59,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={viewModel.pubLocation}"
+                android:text="@={viewModel.avaibleGames}"
                 android:hint="Dostępne gry (dodawaj po przecinku, oddzielając spacją)" />
 
         </com.google.android.material.textfield.TextInputLayout>

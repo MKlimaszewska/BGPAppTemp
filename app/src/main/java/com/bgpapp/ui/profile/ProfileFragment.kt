@@ -13,10 +13,12 @@ import com.bgpapp.common.RecyclerAdapter
 import com.bgpapp.databinding.FragmentProfileBinding
 import com.bgpapp.navigation.observeNavigation
 import com.bgpapp.service.BGPService
+import com.bgpapp.service.RestService
+import com.bgpapp.service.RestServiceBuilder
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
-    private val viewModel = ProfileViewModel(BGPService())
+    private val viewModel = ProfileViewModel(BGPService(RestServiceBuilder.build(RestService::class.java)))
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewModel.observeNavigation(this)
         return DataBindingUtil.inflate<FragmentProfileBinding>(inflater, R.layout.fragment_profile, container, false).also {
