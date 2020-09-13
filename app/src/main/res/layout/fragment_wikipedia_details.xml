@@ -91,7 +91,7 @@
                         android:layout_margin="10dp"
                         android:layout_marginHorizontal="15dp"
                         android:ellipsize="end"
-                        android:text="@{viewModel.description}"
+                        android:text="@{viewModel.moreInfo}"
                         android:textColor="@color/colorGreyDark"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -159,19 +159,6 @@
                             android:text="@{viewModel.gamersNumber}"  />
 
                     </com.google.android.material.textfield.TextInputLayout>
-
-                    <TextView
-                        android:id="@+id/moreInfo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_marginHorizontal="15dp"
-                        android:ellipsize="end"
-                        android:text="@{viewModel.moreInfo}"
-                        android:textColor="@color/colorGreyDark"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/numberOfPlayers" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>
