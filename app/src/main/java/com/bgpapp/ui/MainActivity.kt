@@ -29,19 +29,5 @@ class MainActivity : AppCompatActivity() {
         return NavigationUI.navigateUp(navController, null)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.logout_menu, menu)
-        return true
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
-            R.id.logout -> {
-                navigate(NavigationCommand.FinishFlow)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 }

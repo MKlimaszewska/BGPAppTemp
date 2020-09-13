@@ -2,15 +2,15 @@ package com.bgpapp.ui.profile
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bgpapp.R
 import com.bgpapp.common.RecyclerAdapter
 import com.bgpapp.databinding.FragmentProfileBinding
+import com.bgpapp.navigation.NavigationCommand
+import com.bgpapp.navigation.navigate
 import com.bgpapp.navigation.observeNavigation
 import com.bgpapp.service.BGPService
 import com.bgpapp.service.RestService
@@ -46,5 +46,21 @@ class ProfileFragment : Fragment() {
         viewModel.loadData()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.logout_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.logout -> {
+                navigate(NavigationCommand.FinishFlow)
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
+    }
 
 }

@@ -12,6 +12,8 @@ import com.bgpapp.navigation.Navigator
 import com.bgpapp.service.BGPService
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 class RegistrationViewModel(private val service: BGPService): ViewModel(), Navigator by DefaultNavigator() {
 
@@ -25,6 +27,12 @@ class RegistrationViewModel(private val service: BGPService): ViewModel(), Navig
 
     val registerEvent = DataEventEmitter<String>()
 
+    fun updateDateOfBirth(year: Int, month: Int, dayOfMonth: Int) {
+        val formatted = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month, dayOfMonth)
+        birthDate.value = formatted.format(Date(calendar.timeInMillis))
+    }
     fun onClickToRegister() = viewModelScope.launch {
         try {
             val registerData = RegisterData(
